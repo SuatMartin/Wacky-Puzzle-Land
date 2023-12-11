@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/topmiddle.unity
+- path: Assets/Scenes/icelandroom.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
