@@ -32,8 +32,6 @@ public class InteractWrong : MonoBehaviour
         float zThreshold = 50;
         
         Vector3 playerPosition = FirstPersonController.transform.position;
-        Debug.Log(transform.position.x +" " +playerPosition.x);
-        Debug.Log(transform.position.z +" " +playerPosition.z);
         if (Mathf.Abs(transform.position.x - playerPosition.x) < xThreshold &&
                Mathf.Abs(transform.position.z - playerPosition.z) < zThreshold){
                 Debug.Log("standing on it");
