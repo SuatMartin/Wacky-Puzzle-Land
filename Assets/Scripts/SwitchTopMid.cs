@@ -11,7 +11,7 @@ public class SwitchTopMid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        firstPersonController = GameObject.Find("topmiddle");
+        firstPersonController = GameObject.Find("FirstPersonController");
         interactRight = rightHolder.GetComponent<InteractRight>();
     }
     
@@ -45,8 +45,6 @@ public class SwitchTopMid : MonoBehaviour
         float zThreshold = 50;
         
         Vector3 playerPosition = firstPersonController.transform.position;
-        Debug.Log(transform.position.x +" " +playerPosition.x);
-        Debug.Log(transform.position.z +" " +playerPosition.z);
         if (Mathf.Abs(transform.position.x - playerPosition.x) < xThreshold &&
                Mathf.Abs(transform.position.z - playerPosition.z) < zThreshold){
                 Debug.Log("standing on it");

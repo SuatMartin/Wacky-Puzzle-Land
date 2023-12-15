@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class SwitchMidLeft : MonoBehaviour
+public class NorthAmericaDoor : MonoBehaviour
 {
     private GameObject firstPersonController;
     private InteractRight interactRight;
     public GameObject rightHolder;
+    private FlagCheck Flags;
     // Start is called before the first frame update
     void Start()
     {
         firstPersonController = GameObject.Find("FirstPersonController");
         interactRight = rightHolder.GetComponent<InteractRight>();
+        Flags = FindObjectOfType<FlagCheck>();
     }
     
 
@@ -20,17 +21,15 @@ public class SwitchMidLeft : MonoBehaviour
     void Update()
     {
         bool Check = interactRight.Correct;
-        Debug.Log(Check);
         if (isPlayerOnTop() && Check)
         {
-            MovePlayer();
+            CheckFlag();
         }
     }
 
-    private void MovePlayer()
+    private void CheckFlag()
     {
-        interactRight.Correct = false;
-        SceneManager.LoadScene("leftmid");
+        Flags.NorthAmerica= true;
     }
 
     private bool isPlayerOnTop()
@@ -41,8 +40,8 @@ public class SwitchMidLeft : MonoBehaviour
             return false;
         }
 
-        float xThreshold = 50;
-        float zThreshold = 50;
+        float xThreshold = 51;
+        float zThreshold = 51;
         
         Vector3 playerPosition = firstPersonController.transform.position;
         if (Mathf.Abs(transform.position.x - playerPosition.x) < xThreshold &&
@@ -54,3 +53,4 @@ public class SwitchMidLeft : MonoBehaviour
         }
     }
 }
+
