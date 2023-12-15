@@ -32,4 +32,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/topright.unity
     guid: 63dac8936208f4617978ed37e8bb5002
+  - enabled: 1
+    path: Assets/Scenes/algeriaroom.unity
+    guid: c7962b79417eae249a8c896a120eefb6
+  - enabled: 1
+    path: Assets/Scenes/brazilroom.unity
+    guid: bfa5f4181cd40b642a67395653d800f8
+  - enabled: 1
+    path: Assets/Scenes/icelandroom.unity
+    guid: 501a402c32c706549a5a30cb3241e65e
+  - enabled: 1
+    path: Assets/Scenes/japanroom.unity
+    guid: eb043ab329544364baa4dd436ee29c62
+  - enabled: 1
+    path: Assets/Scenes/russiaroom.unity
+    guid: 080ea790d9c93214c9036d17a94e6e6b
   m_configObjects: {}

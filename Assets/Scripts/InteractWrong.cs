@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 public class InteractWrong : MonoBehaviour
 {
     public GameObject FirstPersonController;
+    System.Random random = new System.Random();
+    private int randomNumber;
 
+        
     private void Update()
     {
         if (isPlayerOnTop() && Input.GetKeyDown(KeyCode.E))
@@ -17,7 +20,18 @@ public class InteractWrong : MonoBehaviour
 
     private void ToggleObjectState()
     {
-        SceneManager.LoadScene("topleft");
+        randomNumber = random.Next(1, 6);
+        if(randomNumber == 1){
+            SceneManager.LoadScene("algeriaroom");
+        } else if (randomNumber == 2){
+            SceneManager.LoadScene("japanroom");
+        } else if (randomNumber == 3){
+            SceneManager.LoadScene("brazilroom");
+        } else if (randomNumber == 4){
+            SceneManager.LoadScene("icelandroom");
+        } else {
+            SceneManager.LoadScene("russiaroom");
+        }
     }
 
      private bool isPlayerOnTop()
