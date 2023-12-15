@@ -6,9 +6,11 @@ public class InteractRight : MonoBehaviour
 {
     public GameObject FirstPersonController;
     public bool Correct;
+    private AudioSource audioSource;
 
     void Start(){
-     Correct = false;   
+     Correct = false; 
+     audioSource = GetComponent<AudioSource>();  
     }
 
     private void Update()
@@ -21,6 +23,7 @@ public class InteractRight : MonoBehaviour
 
     private void ToggleObjectState()
     {
+        audioSource.Play();
         Correct = true;
     }
 

@@ -8,33 +8,57 @@ public class InteractWrong : MonoBehaviour
     public GameObject FirstPersonController;
     System.Random random = new System.Random();
     private int randomNumber;
+    private AudioSource audioSource;
 
-        
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if (isPlayerOnTop() && Input.GetKeyDown(KeyCode.E))
         {
-            ToggleObjectState();
+            StartCoroutine(ToggleObjectStateWithDelay());
         }
     }
 
-    private void ToggleObjectState()
+    private IEnumerator ToggleObjectStateWithDelay()
+    {
+        audioSource.Play();
+
+        // Wait for 5 seconds before changing the scene
+        yield return new WaitForSeconds(3.5f);
+
+        ChangeScene();
+    }
+
+    private void ChangeScene()
     {
         randomNumber = random.Next(1, 6);
-        if(randomNumber == 1){
+        if (randomNumber == 1)
+        {
             SceneManager.LoadScene("algeriaroom");
-        } else if (randomNumber == 2){
+        }
+        else if (randomNumber == 2)
+        {
             SceneManager.LoadScene("japanroom");
-        } else if (randomNumber == 3){
+        }
+        else if (randomNumber == 3)
+        {
             SceneManager.LoadScene("brazilroom");
-        } else if (randomNumber == 4){
+        }
+        else if (randomNumber == 4)
+        {
             SceneManager.LoadScene("icelandroom");
-        } else {
+        }
+        else
+        {
             SceneManager.LoadScene("russiaroom");
         }
     }
 
-     private bool isPlayerOnTop()
+    private bool isPlayerOnTop()
     {
         if (FirstPersonController == null)
         {
@@ -44,13 +68,16 @@ public class InteractWrong : MonoBehaviour
 
         float xThreshold = 50;
         float zThreshold = 50;
-        
+
         Vector3 playerPosition = FirstPersonController.transform.position;
         if (Mathf.Abs(transform.position.x - playerPosition.x) < xThreshold &&
-               Mathf.Abs(transform.position.z - playerPosition.z) < zThreshold){
-                Debug.Log("standing on it");
-                return true;
-        } else {
+            Mathf.Abs(transform.position.z - playerPosition.z) < zThreshold)
+        {
+            Debug.Log("standing on it");
+            return true;
+        }
+        else
+        {
             return false;
         }
     }
